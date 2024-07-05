@@ -183,5 +183,5 @@ class TestProductModel(unittest.TestCase):
         for product in found:
             self.assertEqual(product.category, category)
 
-if __name__ == "__main__":
-    unittest.main()
+# if __name__ == "__main__":
+#     unittest.main()
