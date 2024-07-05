@@ -32,6 +32,7 @@ from service import app
 from service.common import status
 from service.models import db, init_db, Product
 from tests.factories import ProductFactory
+import requests
 
 # Disable all but critical errors during normal test run
 # uncomment for debugging failing tests
@@ -191,7 +192,7 @@ class TestProductRoutes(TestCase):
         """It should not Get a Product thats not found"""
         response = self.client.get(f"{BASE_URL}/0")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-        data = response.get_json()
+        data = response.json()
         self.assertIn("was not found", data["message"])
 
     ######################################################################
