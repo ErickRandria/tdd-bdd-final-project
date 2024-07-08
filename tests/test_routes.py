@@ -194,11 +194,11 @@ class TestProductRoutes(TestCase):
     #     self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
     #     data = response.json()
     #     self.assertIn("was not found", data["message"])
-    def test_get_product_not_found():
+    def test_get_product_not_found(self):
     # Assuming you're using a test client or requests module to simulate HTTP requests
-        with app.test_client() as client:
+        with app.test_client(self) as client:
             # Make a GET request to /products/{id} with an invalid product ID (e.g., 0)
-            response = client.get(f'{BASE_URL}/0')
+            response = self.client.get(f'{BASE_URL}/0')
 
             # Assert that the status code of the response is HTTP 404 Not Found
             assert response.status_code == 404
