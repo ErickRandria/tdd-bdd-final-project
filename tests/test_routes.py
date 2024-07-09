@@ -186,23 +186,14 @@ class TestProductRoutes(TestCase):
             abort(status.HTTP_404_NOT_FOUND, f"Product with id '{product_id}' was not found.")
 
         app.logger.info("Returning product: %s", product.name)
-        return product.serialize(), status.HTTP_200_OK       
-
-    # def test_get_product_not_found(self):
-    #     """It should not Get a Product thats not found"""
-    #     response = self.client.get(f"{BASE_URL}/0")
-    #     self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-    #     data = response.json()
-    #     self.assertIn("was not found", data["message"])
+        return product.serialize(), status.HTTP_200_OK
+    
     def test_get_product_not_found(self):
-    # Assuming you're using a test client or requests module to simulate HTTP requests
-        with app.test_client(self) as client:
-            # Make a GET request to /products/{id} with an invalid product ID (e.g., 0)
-            response = self.client.get(f'{BASE_URL}/0')
-
-            # Assert that the status code of the response is HTTP 404 Not Found
-            assert response.status_code == 404
-
+        """It should not Get a Product thats not found"""
+        response = self.client.get(f"{BASE_URL}/0")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        data = response.get_json()
+        self.assertIn("was not found", data["message"])
     ######################################################################
     # Utility functions
     ######################################################################
