@@ -187,7 +187,7 @@ class TestProductRoutes(TestCase):
 
         app.logger.info("Returning product: %s", product.name)
         return product.serialize(), status.HTTP_200_OK
-    
+
     def test_get_product_not_found(self):
         """It should not Get a Product thats not found"""
         response = self.client.get(f"{BASE_URL}/0")
