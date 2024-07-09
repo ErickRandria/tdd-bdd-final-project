@@ -32,7 +32,7 @@ from service import app
 from service.common import status
 from service.models import db, init_db, Product
 from tests.factories import ProductFactory
-import unittest
+from flask import abort
 
 # Disable all but critical errors during normal test run
 # uncomment for debugging failing tests

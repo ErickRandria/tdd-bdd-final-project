@@ -23,10 +23,8 @@ from service.models import Product, Category
 
 class ProductFactory(factory.Factory):
     """Creates fake products for testing"""
-
     class Meta:
         """Maps factory to data model"""
-
         model = Product
 
     id = factory.Sequence(lambda n: n)
