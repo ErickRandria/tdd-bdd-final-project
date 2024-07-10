@@ -34,6 +34,7 @@ from service.models import db, init_db, Product, Category
 from tests.factories import ProductFactory
 from flask import abort
 
+
 # Disable all but critical errors during normal test run
 # uncomment for debugging failing tests
 # logging.disable(logging.CRITICAL)

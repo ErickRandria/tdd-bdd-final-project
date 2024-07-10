@@ -24,7 +24,6 @@ from service.models import Product, Category, db
 from service.common import status  # HTTP Status Codes
 from . import app
 
-
 ######################################################################
 # H E A L T H   C H E C K
 ######################################################################
